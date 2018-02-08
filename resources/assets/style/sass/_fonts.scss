@@ -1,0 +1,10 @@
+//iran-sans font declaration
+@font-face {
+  font-family: 'iran-sans';
+  src: url('../../fonts/iran-sans/IRANSansWeb.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/iran-sans/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../fonts/iran-sans/IRANSansWeb.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../fonts/iran-sans/IRANSansWeb.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../../fonts/iran-sans/IRANSansWeb.ttf') format('truetype'); /* Safari, Android, iOS */
+  //url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

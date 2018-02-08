@@ -1,10 +1,4 @@
-var express = require('express');
-
-//required for webpack dev middleware
-// const webpack = require('webpack');
-
-// require webpack dev middleware
-// const webpackDevMiddleware = require('webpack-dev-middleware');
+let express = require('express');
 
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -16,16 +10,6 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-//get webpack config for webpack middleware
-// const webpackConfig = require('./webpack.config.js');
-// const compiler = webpack(webpackConfig);
-
-// Tell express to use the webpack-dev-middleware and use the webpack.config.js
-// configuration file as a base.
-// app.use(webpackDevMiddleware(compiler, {
-//     publicPath: webpackConfig.output.publicPath
-// }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

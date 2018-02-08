@@ -1,0 +1,23 @@
+//RTL patch for bootstrap
+@import "../css/bootstrap-rtl/bootstrap-grid.rtl.css";
+@import "../css/bootstrap-rtl/bootstrap.rtl.css";
+// Variables
+@import "variables";
+@import "fonts";
+
+p, span, div {
+  font-family: iran-sans, serif;
+}
+
+body {
+  background: $main-bg-color;
+}
+
+/*
+/--------------------------------------------------------------
+/ import ...
+/--------------------------------------------------------------
+*/
+
+
+
