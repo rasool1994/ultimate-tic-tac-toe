@@ -5,6 +5,9 @@
 </template>
 
 <style rel="stylesheet/scss" href="./style.css" lang="scss" type="text/scss" scoped>
+    header {
+        margin-bottom: 150px;
+    }
 </style>
 
 <script type="text/babel">

@@ -20,6 +20,8 @@ const extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 
+// const CompressionPlugin = require("compression-webpack-plugin");
+
 module.exports = {
     entry: {
         '/js/app.js': "./resources/assets/js/app.js",
@@ -36,6 +38,9 @@ module.exports = {
     devtool: 'inline-source-map',
     plugins: [
         extractSass,
+        // new CompressionPlugin({
+        //     test: /\.js/
+        // }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('development')
@@ -54,6 +59,16 @@ module.exports = {
     },
     module: {
         rules: [
+            //bootstrap native loader
+            {
+                test: /bootstrap\.native/,
+                use: {
+                    loader: 'bootstrap.native-loader',
+                    options: {
+                        only: ['modal', 'dropdown']
+                    }
+                }
+            },
             //sass loader
             {
                 test: /\.scss$/,

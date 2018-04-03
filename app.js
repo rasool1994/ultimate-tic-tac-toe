@@ -3,17 +3,18 @@
 var express = require('express');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
-var passport = require('passport');
+// var passport = require('passport');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongooseConnection = require('./database/db.js');
-var flash = require('connect-flash');
-
+// var flash = require('connect-flash');
 
 var app = express();
+
+app.io = require('socket.io')();
 
 // view engine setup
 app.set('view engine', 'ejs');// set up ejs for templating
@@ -21,11 +22,10 @@ app.set('view engine', 'ejs');// set up ejs for templating
 // app.set('views', path.join(__dirname, 'views'));
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-require('./config/passport')(passport); // pass passport for configuration
+// require('./config/passport')(passport); // pass passport for configuration
 
-// required for passport
 app.use(session({
     secret: 'random_secret_key',
     store: new mongoStore({
@@ -34,9 +34,11 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session());// persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+
+// required for passport
+// app.use(passport.initialize());
+// app.use(passport.session());// persistent login sessions
+// app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 // set up our express application
@@ -49,10 +51,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes ======================================================================
-var index = require('./routes/index');
-// var users = require('./routes/users');
+// var index = require('./routes/index')(passport);
+var api = require('./routes/api')();
+var index = require('./routes/app')();
+// app.use('/', index);
+app.use('/api', api);
 app.use('/', index);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

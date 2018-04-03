@@ -33,6 +33,15 @@ Vue.component('m-header', header);
 import gameTurnIndicator from './vue/game-turn-indicator.vue';
 Vue.component('m-game-turn-indicator', gameTurnIndicator);
 
+import gameController from './vue/game-controller.vue';
+Vue.component('m-game-controller', gameController);
+
+import login from './vue/login.vue';
+Vue.component('m-login', login);
+
+import signup from './vue/signup.vue';
+Vue.component('m-signup', signup);
+
 import test from './vue/test.vue';
 Vue.component('m-test', test);
 
@@ -45,7 +54,16 @@ Vue.component('m-test', test);
 
 const routes = [
     {
-        path: '', component: game
+        path: '',
+        component: game
+    },
+    {
+        path: '/login',
+        component: login
+    },
+    {
+        path: '/signup',
+        component: signup
     }
 ];
 
@@ -53,7 +71,7 @@ const routes = [
 // You can pass in additional options here, but let's
 // keep it simple for now.
 const router = new VueRouter({
-    routes // short for `routes: routes`
+    routes
 });
 
 export default router

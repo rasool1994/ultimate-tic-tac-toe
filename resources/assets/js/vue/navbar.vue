@@ -3,13 +3,11 @@
     <div id="main_nav" class="main-nav">
         <div class="container">
 
-            <a id="navigation" class="navigation-btn" href="#"><i
-                    class="fa fa-bars"></i></a>
+            <a id="navigation" class="navigation-btn hidden-xl-up" href="#"><i class="fa fa-bars"></i></a>
             <!--sideNav-->
             <div id="slide_out_menu" class="slide_out_menu">
                 <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
-                <div class="logo"><img src="../../images/logo-white.png" alt="">
-                </div>
+                <div class="logo"><span style="color: white;">DoozDooz</span></div>
                 <ul>
                     <li>
                         <router-link to="/bar">Tour</router-link>
@@ -52,30 +50,29 @@
             </div>
 
             <!--topNAv-->
-            <div class="row">
+            <div class="row top-nav">
                 <div class="col-md-4">
                     <ul class="left">
-                        <li>
+                        <li class="hidden-xl-down">
                             <router-link to="/bar">Tour</router-link>
                         </li>
-                        <li>
+                        <li class="hidden-xl-down">
                             <router-link to="/bar">Features</router-link>
                         </li>
-                        <li>
+                        <li class="hidden-xl-down">
                             <router-link to="/bar">Pricing</router-link>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4 text-center">
-                    <a href="#" class="logo"><img src="../../images/logo.png"
-                                                  alt="New Providence"></a>
+                    <span href="#" class="logo">DoozDooz</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="right">
-                        <li>
+                        <li class="hidden-xl-down">
                             <router-link to="/bar">Help</router-link>
                         </li>
-                        <li>
+                        <li class="hidden-xl-down">
                             <router-link to="/foo">Contacts</router-link>
                         </li>
                         <li>
@@ -91,6 +88,22 @@
 </template>
 
 <style rel="stylesheet/scss" href="./style.css" lang="scss" type="text/scss" scoped>
+
+    .top-nav {
+        flex-wrap: nowrap;
+    }
+
+    @media (min-width: 1200px) {
+        .hidden-xl-up {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .hidden-xl-down {
+            display: none !important;
+        }
+    }
 
     .btn-download-app {
         font-size: 16px;

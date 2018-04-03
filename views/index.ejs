@@ -13,16 +13,33 @@
 </head>
 <body>
 <div id="app">
-        <m-header></m-header>
-    <aside></aside>
+    <m-header></m-header>
+    <!--<aside></aside>-->
     <main>
         <router-view>
 
         </router-view>
     </main>
-    <footer>
-    </footer>
+    <!--<footer></footer>-->
 </div>
+
+<!--<script type="text/javascript" src="js/socket.io.js"></script>-->
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    window.socketIo = io();
+</script>
+
 <script type="text/javascript" src="js/app.js"></script>
+
+<script>
+    //    var socket = io();
+    //    setTimeout(function () {
+    //        console.log('some log');
+    //        socket.emit('chat message', 'some test message');
+    //    }, 3000);
+</script>
+
 </body>
 </html>

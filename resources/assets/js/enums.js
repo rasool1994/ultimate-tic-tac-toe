@@ -28,10 +28,17 @@ const boardStatus = {
     CLEAR: 2
 };
 
+const gameMode = {
+    ONLINE: 0,
+    HUMAN: 1,
+    AI: 2
+};
+
 export default {
     turn,
     cellStatus,
     nodeStatus,
-    boardStatus
+    boardStatus,
+    gameMode
 };
 

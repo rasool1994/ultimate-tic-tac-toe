@@ -1,6 +1,8 @@
 <template>
     <div class="container">
+        <m-game-controller></m-game-controller>
         <m-game-turn-indicator></m-game-turn-indicator>
+        <!--<m-test></m-test>-->
         <div class="game">
             <m-game-board></m-game-board>
             <m-game-moves-history></m-game-moves-history>

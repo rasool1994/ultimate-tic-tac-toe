@@ -10,12 +10,11 @@
         border: solid 1px rgba(0, 0, 0, 0.6);
         border-radius: 5px;
         cursor: pointer;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
     }
 
     .available-for-me {
         box-shadow: 0 2px 5px 0 rgba(200, 0, 0, 0.7), 0 2px 10px 0 rgba(200, 0, 0, 0.7);
-
     }
 
     .available-for-opponent {
@@ -42,8 +41,9 @@
 
 <script type="text/babel">
     import {arrayContains} from '../helpers';
-    import CONSTANT from '../constants'
-    import ENUM from '../enums'
+    import CONSTANT from '../constants';
+    import ENUM from '../enums';
+
     export default {
         props: ['cellId'],
         computed: {
@@ -75,8 +75,18 @@
                     return;
                 }
                 if (this.isCellAvailable()) {
-                    // TODO: use dispatch action instead of commit mutation
-                    this.$store.commit('play', this.cellId);
+                    if (this.$store.state.options.gameMode == ENUM.gameMode.HUMAN) {
+                        this.$store.commit('play', this.cellId);
+                    } else if (this.$store.state.options.gameMode == ENUM.gameMode.AI && this.$store.state.gameTurn == ENUM.turn.ME) {
+                        this.$store.commit('play', this.cellId);
+                    } else if (this.$store.state.gameTurn == ENUM.turn.ME) {
+                        this.$store.commit('play', this.cellId);
+                        socketIo.emit('play', {
+                            cellId: this.cellId,
+                            channel: this.$store.state.gameChannel
+                        });
+                    }
+
                 } else {
                     let Toast = this.$toasted.show('<span style="color: red;">selected cell is not available</span>');
                     setTimeout(() => {

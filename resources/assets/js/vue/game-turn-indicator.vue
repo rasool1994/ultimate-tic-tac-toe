@@ -7,7 +7,7 @@
 <style rel="stylesheet/scss" href="./style.css" lang="scss" type="text/scss" scoped>
     .turn {
         text-align: center;
-        margin-top: 130px;
+        margin-top: 10px;
     }
 </style>
 

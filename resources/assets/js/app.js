@@ -4,11 +4,14 @@
  * building robust, powerful web applications using Vue and Express
  */
 
-require('./bootstrap');
+import './bootstrap';
 
-require('./vue');
+import './vue';
 
-require('./fontawesome');
+import './fontawesome';
+
+
+// import 'socket.io-client';
 
 // require('./custom');
 
